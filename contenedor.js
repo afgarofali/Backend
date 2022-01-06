@@ -131,7 +131,12 @@ const server = app.listen(PORT, () => {
 server.on("error", error => console.log(`Error en servidor ${error}`))
 
 
-app.get('/', (req, res) => {
-    res.send({ mensaje: 'hola mundo' })
- })
- 
+
+ app.ge('/',(request,response)=>{
+    response.send("hola mundo")
+});
+
+
+const listener = app.listen(process.env.PORT, () => {
+console.log("puerto escuchando" + listener.address().port);
+});
