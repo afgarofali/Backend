@@ -1,4 +1,5 @@
 const Contenedor = require('./contenedor');
+const Contenedor = require('./contenedor');
 
 cont = new Contenedor('productos.txt');
 
@@ -9,6 +10,3 @@ let objeto = {
     image: 'rutaimagen235',
     id: "",
 };
-
-
-
