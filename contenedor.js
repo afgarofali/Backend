@@ -16,7 +16,7 @@ class Contenedor {
         let id = 0;
         
 
-        fs.promises.readFile("./productos.txt", "utf-8")
+        fs.promises.readFile("./productos.json", "utf-8")
             .then(contenido => {
                 let contenidostr = JSON.parse(contenido);
                 //extrae el ultimo id
@@ -29,7 +29,7 @@ class Contenedor {
                 //guarda el objeto nuevo en el archivo
                 async function escribir(){
                     try {
-                        await fs.promises.writeFile('./productos.txt',data);
+                        await fs.promises.writeFile('./productos.json',data);
                         console.log("Guardado");
                     }
                     catch(err){
@@ -48,7 +48,7 @@ class Contenedor {
 
 
     getAll(){
-        fs.promises.readFile("./productos.txt", "utf-8")
+        fs.promises.readFile("./productos.json", "utf-8")
             .then(contenido => {
                 let contenidostr = JSON.parse(contenido);
                 console.log(contenidostr);
@@ -61,7 +61,7 @@ class Contenedor {
 
 
     getById(idBuscado){
-        fs.promises.readFile("./productos.txt", "utf-8")
+        fs.promises.readFile("./productos.json", "utf-8")
         .then(contenido => {
             let contenidostr = JSON.parse(contenido);
             
@@ -80,7 +80,7 @@ class Contenedor {
     deleteAll(){
         async function vaciar(){
             try {
-                await fs.promises.writeFile('./productos.txt',"");
+                await fs.promises.writeFile('./productos.json',"");
                 console.log("Borrado");
                 
             }
@@ -93,7 +93,7 @@ class Contenedor {
 
 
     deleteById(idBorrado){
-        fs.promises.readFile("./productos.txt", "utf-8")
+        fs.promises.readFile("./productos.json", "utf-8")
         .then(contenido => {
             let contenidostr = JSON.parse(contenido);
             
@@ -105,7 +105,7 @@ class Contenedor {
             let data = JSON.stringify(contenidostr);
             async function escribir(){
                 try {
-                    await fs.promises.writeFile('./productos.txt',data);
+                    await fs.promises.writeFile('./productos.json',data);
                     console.log("Borrado y guardado");
                 }
                 catch(err){
@@ -124,20 +124,4 @@ class Contenedor {
 
 module.exports = Contenedor;
 
-const PORT = 8080
 
-const server = app.listen(PORT, () => {
-   console.log(`Servidor http escuchando en el puerto ${server.address().port}`)
-})
-server.on("error", error => console.log(`Error en servidor ${error}`))
-
-
-
- app.ge('/',(request,response)=>{
-    response.send("hola mundo")
-});
-
-
-const listener = app.listen(process.env.PORT, () => {
-console.log("puerto escuchando" + listener.address().port);
-});
