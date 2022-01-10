@@ -9,10 +9,13 @@ cont = new Contenedor('productos.json');
 
 const server = app.listen(PORT, () => {
    console.log(`Servidor http escuchando en el puerto ${server.address().port}`)
-})
+});
 server.on("error", error => console.log(`Error en servidor ${error}`))
  
-
+const listener = app.listen(process.env.PORT, () => {
+    console.log("Puerto: " + listener.address().port);
+});
+    
 
 app.get('/',(request,response)=>{
     response.send("API Backend CH")
@@ -46,9 +49,10 @@ app.get('/productoRandom',async(request,response)=>{
 
 
 
-const listener = app.listen(process.env.PORT, () => {
-console.log("puerto escuchando" + listener.address().port);
-});
+
+
+
+
 
 
 
