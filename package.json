@@ -1,0 +1,14 @@
+{
+  "name": "curso-backend-ch",
+  "version": "0.0.1",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "dependencies": {
+    "express": "^4.17.2"
+  },
+  "engines": {
+    "node": "12.x"
+  }
+}
